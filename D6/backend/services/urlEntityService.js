@@ -1,10 +1,9 @@
-const { find } = require("../entity/url");
 const Url = require("../entity/url");
 
 module.exports = {
   saveUrl: (newUrl) => {
     try {
-      const savedUrl =  newUrl.save();
+      const savedUrl = newUrl.save();
       return savedUrl;
     } catch (error) {
       throw new Error(error);
@@ -13,7 +12,9 @@ module.exports = {
 
   findBigUrl: (url) => {
     try {
-      const findUrl = Url.findOne({ bigUrl: url });
+      const findUrl = Url.findOne({
+        bigUrl: url,
+      });
       return findUrl;
     } catch (error) {
       throw new Error(error);
@@ -22,7 +23,9 @@ module.exports = {
 
   findByShortUrl: (url) => {
     try {
-      const findUrl = Url.findOne({ tinyUrl: url });
+      const findUrl = Url.findOne({
+        smallUrl: url,
+      });
       return findUrl;
     } catch (error) {
       throw new Error(error);
